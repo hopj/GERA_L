@@ -1,0 +1,16 @@
+from bs4 import BeautifulSoup
+
+
+    def processa_HTML_videos(self, html_page):
+        self.__writeLog("Processando HTML --> " + html_page)
+        with open(html_page,"r", encoding='utf8') as f:
+            soup = BeautifulSoup(f)  
+        soup.prettify()
+
+        for tag in soup.find_all("a"): 
+            video_e_parent = ("/"+os.path.split(os.path.split(tag['href'])[0])[1]+"/"+ os.path.split(os.path.abspath(tag['href']))[1]).upper()
+            if (video_e_parent in self.PROCESSED_VIDEO_FILES):
+                tag['href'] = str(tag['href']) + "_thumbs.jpg"
+                                    
+        with open(html_page+self.__TEMPSUFIX["NEW"]+".html","w", encoding='utf8') as f:
+            f.write(str(soup))  
