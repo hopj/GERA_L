@@ -85,6 +85,10 @@ browser.follow_link(link_elaborar_laudo)
 
 '''
 Muitos campos hidden.
+
+Tentei dar o form.submit e deu erro reclamando dos campos hidden
+    - Testar executar o click no botão ao invés do submit. Acho q o botão pode resolver.
+
 Testar o preenchimento dos campos hidden da mesma forma que o html preenche.
     Coletar o codigo_objeto_pai a partir do endereço da página.
         . Pegar na beutifullsoup ou no link anterior que encaminhou para cá.
